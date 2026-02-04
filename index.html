@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>aether.nic — Literary Archive</title>
+
+  <style>
+    :root {
+      --bg: #f8f6f2;
+      --text: #1f1f1f;
+      --muted: #6b6b6b;
+      --accent: #2f5d50;
+      --line: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 4.5rem 1.5rem 3.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 0.04em;
+    }
+
+    header .penname {
+      margin-top: 0.6rem;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    header p {
+      margin: 1.8rem auto 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.2rem;
+      padding: 1.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 5.5rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    section p.description {
+      color: var(--muted);
+      margin-bottom: 2.2rem;
+      max-width: 640px;
+    }
+
+    .placeholder {
+      border-left: 3px solid var(--accent);
+      padding: 1.1rem 1.6rem;
+      background: #ffffff;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>aether.nic</h1>
+    <div class="penname">literary archive</div>
+
+    <p>
+      Pharmacist by training. Writer by necessity.<br>
+      A growing collection of fragments written in moments of clarity and confusion.
+      Some projects are finished, others abandoned—all of them part of the learning.
+      This is where ideas are tested, broken, and sometimes made useful.
+    </p>
+  </header>
+
+  <nav>
+    <a href="#poetry">Poetry</a>
+    <a href="#fragments">Fragments</a>
+    <a href="#pharmaceutics">Pharmaceutics</a>
+  </nav>
+
+  <main>
+
+    <section id="poetry">
+      <h2>Poetry</h2>
+      <p class="description">
+        Poems shaped by attention, restraint, and silence.
+        Language allowed to breathe before it explains itself.
+      </p>
+
+      <div class="placeholder">
+        Poetry will be published here in time.
+      </div>
+    </section>
+
+    <section id="fragments">
+      <h2>Fragments</h2>
+      <p class="description">
+        Notes, aphorisms, and incomplete thoughts.
+        Written quickly, revised slowly, or left unresolved.
+      </p>
+
+      <div class="placeholder">
+        Fragments forthcoming.
+      </div>
+    </section>
+
+    <section id="pharmaceutics">
+      <h2>Pharmaceutics</h2>
+      <p class="description">
+        Writing informed by pharmacy, medicine, and ethics.
+        Observations on healing, systems, limits, and responsibility.
+      </p>
+
+      <div class="placeholder">
+        Pharmaceutics essays and reflections will appear here.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> aether.nic • All rights reserved
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
