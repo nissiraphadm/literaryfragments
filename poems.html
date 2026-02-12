@@ -15,23 +15,23 @@
         }
 
         header {
-            padding: 40px 60px 20px 60px;
+            padding: 60px 80px 20px 80px;
         }
 
         header h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: normal;
             margin: 0;
         }
 
         nav {
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         nav a {
-            margin-right: 20px;
             text-decoration: none;
             color: #111;
+            margin-right: 25px;
             font-size: 14px;
         }
 
@@ -39,8 +39,8 @@
             text-decoration: underline;
         }
 
-        .content {
-            padding: 40px 60px;
+        .container {
+            padding: 40px 80px 80px 80px;
             max-width: 700px;
         }
 
@@ -48,14 +48,14 @@
             margin-bottom: 70px;
         }
 
-        .poem h2 {
-            font-size: 18px;
+        .poem-title {
+            font-size: 16px;
             font-weight: normal;
             margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
-        .poem p {
+        .poem-content {
             font-family: Georgia, serif;
             font-size: 16px;
             line-height: 1.9;
@@ -63,9 +63,9 @@
         }
 
         footer {
-            padding: 40px 60px;
+            padding: 40px 80px;
             font-size: 12px;
-            color: #666;
+            color: #777;
         }
     </style>
 
@@ -75,6 +75,7 @@
 
     <header>
         <h1>Poetry</h1>
+
         <nav>
             <a href="index.html">Home</a>
             <a href="fragments1.html">Fragments</a>
@@ -82,32 +83,33 @@
         </nav>
     </header>
 
-    <main class="content">
+    <div class="container">
 
         <!-- POEM 1 -->
-        <section class="poem">
-            <h2>Poem I</h2>
-            <p>
+        <div class="poem">
+            <div class="poem-title">Poem I</div>
+            <div class="poem-content">
+
 I have known the glow of hope behind my eyes.
 I have watched it die.
 And though it stirs again, faint as a candle in the wind,
 I am ashamed to let the world behold it—
 for fear the gods will snuff it out,
 and leave me with nothing but smoke.
-            </p>
-        </section>
+            </div>
+        </div>
 
-        <!-- POEM 2 (Add more like this below) -->
+        <!-- ADD NEW POEMS BELOW LIKE THIS -->
         <!--
-        <section class="poem">
-            <h2>Poem II</h2>
-            <p>
+        <div class="poem">
+            <div class="poem-title">Poem II</div>
+            <div class="poem-content">
 Second poem here.
-            </p>
-        </section>
+            </div>
+        </div>
         -->
 
-    </main>
+    </div>
 
     <footer>
         © 2026 aether.nic
@@ -115,4 +117,3 @@ Second poem here.
 
 </body>
 </html>
-
