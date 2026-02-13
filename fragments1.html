@@ -2,281 +2,209 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fragments — aether.nic</title>
+<title>Fragments — Poetic Ruin</title>
 
 <style>
-
 body {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #2a2a2a;
-  line-height: 1.9;
-  overflow-x: hidden;
-
-  /* Aged parchment base */
-  background:
-    radial-gradient(circle at 20% 30%, rgba(0,0,0,0.03) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(0,0,0,0.025) 0%, transparent 45%),
-    linear-gradient(to bottom, #efe9dc, #e7dfcf);
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(rgba(15,15,15,0.92), rgba(15,15,15,0.95)),
+                url('https://images.unsplash.com/photo-1501139083538-0139583c060f');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f5f0e6;
+    overflow-x: hidden;
 }
 
-/* Grain overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
-  background-size: 3px 3px;
-  opacity: 0.4;
-  pointer-events: none;
+.ruin-container {
+    position: relative;
+    min-height: 150vh;
+    padding: 100px 0;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 5rem 1.5rem 3rem;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.8rem;
-  letter-spacing: 0.08em;
-  color: #3b3a36;
-}
-
-/* Grid */
-main {
-  max-width: 1100px;
-  margin: 4rem auto;
-  padding: 0 1.5rem 6rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 3rem;
-  transition: filter 0.5s ease;
-}
-
-main.blurred {
-  filter: blur(6px);
-}
-
-/* Fragment paper */
 .fragment {
-  background: #fdfbf6;
-  padding: 2rem 2.2rem;
-  border-left: 3px solid #7a6f5c;
-  box-shadow:
-    0 8px 30px rgba(0,0,0,0.06),
-    inset 0 0 30px rgba(0,0,0,0.02);
-  cursor: pointer;
-  white-space: pre-line;
-  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.6s ease;
-  animation: drift 18s ease-in-out infinite alternate;
+    position: absolute;
+    width: 260px;
+    padding: 20px;
+    background: rgba(245, 235, 215, 0.92);
+    color: #1a1a1a;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    cursor: pointer;
+    transition: all 0.6s ease;
+    backdrop-filter: blur(2px);
+    animation: float 6s ease-in-out infinite;
 }
 
-/* Floating drift */
-@keyframes drift {
-  0% { transform: translateY(0px) rotate(-0.8deg); }
-  100% { transform: translateY(-12px) rotate(0.8deg); }
+.fragment p {
+    margin: 8px 0;
 }
 
-/* Hover field effect */
-main:hover .fragment {
-  opacity: 0.4;
-  transform: scale(0.95);
+/* scattered placement */
+.fragment:nth-child(1){top:10%;left:15%;}
+.fragment:nth-child(2){top:25%;left:65%;}
+.fragment:nth-child(3){top:60%;left:20%;}
+.fragment:nth-child(4){top:70%;left:70%;}
+.fragment:nth-child(5){top:40%;left:40%;}
+.fragment:nth-child(6){top:15%;left:75%;}
+.fragment:nth-child(7){top:55%;left:55%;}
+.fragment:nth-child(8){top:35%;left:5%;}
+.fragment:nth-child(9){top:80%;left:40%;}
+.fragment:nth-child(10){top:5%;left:50%;}
+.fragment:nth-child(11){top:45%;left:80%;}
+.fragment:nth-child(12){top:75%;left:10%;}
+.fragment:nth-child(13){top:20%;left:35%;}
+.fragment:nth-child(14){top:65%;left:45%;}
+.fragment:nth-child(15){top:30%;left:75%;}
+.fragment:nth-child(16){top:50%;left:25%;}
+.fragment:nth-child(17){top:85%;left:65%;}
+.fragment:nth-child(18){top:5%;left:5%;}
+
+@keyframes float {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-8px);}
+    100% {transform: translateY(0px);}
 }
 
+/* Hover effect */
 .fragment:hover {
-  opacity: 1 !important;
-  transform: scale(1.18) translateY(-12px) !important;
-  z-index: 5;
-  box-shadow:
-    0 25px 60px rgba(0,0,0,0.18),
-    inset 0 0 40px rgba(0,0,0,0.03);
+    z-index: 1000;
+    transform: scale(1.6);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.9);
 }
 
-/* Expanded fragment */
-.expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fdfbf6;
-  padding: 4rem 4.5rem;
-  max-width: 800px;
-  width: 90%;
-  border-left: 4px solid #7a6f5c;
-  box-shadow:
-    0 35px 90px rgba(0,0,0,0.25),
-    inset 0 0 50px rgba(0,0,0,0.03);
-  z-index: 999;
-  white-space: pre-line;
-  animation: appear 0.5s ease;
+/* Click focus mode */
+.fragment:active {
+    transform: scale(1.8);
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translate(-50%, -45%); }
-  to { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-.close {
-  position: absolute;
-  top: 18px;
-  right: 28px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #6d6556;
-}
-
+/* Footer */
 footer {
-  text-align: center;
-  padding: 3rem 2rem;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  font-size: 0.85rem;
-  color: #6b6559;
+    position: relative;
+    text-align: center;
+    padding: 50px;
 }
 
-a {
-  color: #6f6452;
-  text-decoration: none;
+footer a {
+    color: #f5f0e6;
+    text-decoration: none;
+    font-style: italic;
 }
 
+footer a:hover {
+    text-decoration: underline;
+}
 </style>
-</head>
 
+</head>
 <body>
 
-<header>
-  <h1>Fragments</h1>
-</header>
+<main class="ruin-container">
 
-<main id="fragmentContainer">
+<article class="fragment">
+<p>Human consciousness is not an accidental byproduct of the universe but an integral aspect of its ongoing creative process. Through perception, interpretation, and intentional action, consciousness participates in shaping meaning, structure, and outcome.</p>
+<p>In this sense, the universe is not merely a static backdrop against which awareness arises; it is dynamically responsive to it. What is observed is not unchanged by observation, and what is understood is subtly reconfigured through understanding.</p>
+<p>Creation, then, is not finished, it continues through awareness.</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Human consciousness is not an accidental byproduct of the universe.
+<article class="fragment">
+<p>The desire to take on the responsibility of forming a family emerges differently for each person. For some, it comes slowly for others, it arrives with undeniable certainty.</p>
+<p>Often, it is shaped by a quiet sense of the divine an awareness that one is not yet fully formed,</p>
+<p>or stable</p>
+<p>or havent reached the full readiness for provision</p>
+<p>to establish something permanent in the world.</p>
+</article>
 
-Creation is not finished —
-it continues through awareness.
-</div>
+<article class="fragment">
+<p>February 4, 2026</p>
+<p>Be not godless in your hearts, and lie not and alter not the words of uprightness</p>
+<p>-Enoch</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-The desire to form something permanent
-arrives differently for each soul.
-</div>
+<article class="fragment">
+<p>February 10, 2026</p>
+<p>YHWH</p>
+<p>Allow me to feel deeply again, awaken me to my senses that I may be able to magnify your wonders</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Be not godless in your hearts.
-— Enoch
-</div>
+<article class="fragment">
+<p>Do not invite someone into a life you are not yet proud of</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-YHWH
+<article class="fragment">
+<p>Anger</p>
+<p>is a familiar taste</p>
+<p>I dont really like it, but I am sometimes bewitched into feasting the feeling</p>
+</article>
 
-Awaken me again.
-</div>
+<article class="fragment">
+<p>Love</p>
+<p>commonly searched by man through finding familiar tastes in peoples mouth</p>
+<p>hmmm, I have felt divine love, yes, but</p>
+<p>here, I am still human, who hopes, and utters silent prayers</p>
+<p>ah! oh Lord</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Do not invite someone into a life
-you are not yet proud of.
-</div>
+<article class="fragment">
+<p>History and Biblical texts</p>
+<p>I have read that when a researcher gets to a certain point</p>
+<p>they tend to realize that some information and studies surpass the understanding of the intellect alone and instead call upon the heart to comprehend mysteries the mind resists</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Anger is a familiar taste.
-I do not like it —
-yet sometimes I feast.
-</div>
+<article class="fragment">
+<p>Faith</p>
+<p>Relish the mystery of God</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Love —
-divine, yes,
-yet here I remain human.
-</div>
+<article class="fragment">
+<p>There is something delightful about dancing on the edge</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-History sometimes calls upon the heart
-when intellect surrenders.
-</div>
+<article class="fragment">
+<p>Worship</p>
+<p>has that fundamental element of mimicry</p>
+<p>the grip of that admiration is part of the impetus to imitate</p>
+<p>to celebrate and imitate</p>
+<p>to celebrate and say this is the highest of values</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Faith
+<article class="fragment">
+<p>You are not called to draw wisdom from those who do NOT live wisely</p>
+</article>
 
-Relish the mystery.
-</div>
+<article class="fragment">
+<p>We have that proclivity of emptying ourselves in order to keep someone else sustained</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-There is delight
-in dancing on the edge.
-</div>
+<article class="fragment">
+<p>Meditation</p>
+<p>Practice the art of long and loving meditation upon the majesty of God. Ye it needs patient effort of the mind.</p>
+<p>God can be known in increasing degrees of intimate acquaintance.</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Worship imitates
-what it exalts.
-</div>
+<article class="fragment">
+<p>We are left for a season among men. Let us faithfully represent Him here.</p>
+<p>I hope</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Draw not wisdom
-from the unwise.
-</div>
+<article class="fragment">
+<p>”The spirit of your aim, answers your prayers</p>
+<p>Once you set up an aim, your imagination and cognitive systems orient themselves to serve that aim. ” - Peterson</p>
+<p>”Every mans damnation is of himself, and every mans salvation is all of God” - Whitefield</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-We empty ourselves
-to sustain another.
-</div>
+<article class="fragment">
+<p>Things dont have to be romatnic for it to be a purposeful connection.</p>
+</article>
 
-<div class="fragment" onclick="expand(this)">
-Meditation requires
-long affection of the mind.
-</div>
-
-<div class="fragment" onclick="expand(this)">
-We are here for a season.
-Represent Him well.
-</div>
-
-<div class="fragment" onclick="expand(this)">
-The spirit of your aim
-answers your prayers.
-</div>
-
-<div class="fragment" onclick="expand(this)">
-Not all purpose
-is romantic.
-</div>
-
-<div class="fragment" onclick="expand(this)">
-You cannot bind me
-with false feeling.
-</div>
+<article class="fragment">
+<p>:You cannot bind me to you with false feeling</p>
+</article>
 
 </main>
 
 <footer>
-  <a href="index.html">← Back to archive</a>
+<a href="index.html">← Back to archive</a>
 </footer>
-
-<script>
-
-function expand(element) {
-  const container = document.getElementById("fragmentContainer");
-  container.classList.add("blurred");
-
-  const expanded = document.createElement("div");
-  expanded.className = "expanded";
-  expanded.innerHTML = `
-    <span class="close" onclick="closeExpanded(this)">✕</span>
-    ${element.innerText}
-  `;
-
-  document.body.appendChild(expanded);
-}
-
-function closeExpanded(button) {
-  document.getElementById("fragmentContainer").classList.remove("blurred");
-  button.parentElement.remove();
-}
-
-</script>
 
 </body>
 </html>
