@@ -17,6 +17,8 @@ body {
     transition: background 0.6s ease;
 }
 
+background-blend-mode: overlay;
+    
 .ruin-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -28,18 +30,30 @@ body {
 
 /* Fragment styling */
 .fragment {
-    position: absolute;
-    max-width: 320px;      /* prevents huge wide cards */
-    width: fit-content;    /* box fits text width */
-    min-width: 180px;      /* prevents it from being too tiny */
+    max-width: 340px;
+    width: 100%;
     padding: 20px 24px;
-    background: rgba(245, 235, 215, 0.92);
+    background: rgba(245, 235, 215, 0.95);
     color: #1a1a1a;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.6s ease;
-    backdrop-filter: blur(2px);
-    animation: float 6s ease-in-out infinite;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* subtle poetic tilt without breaking layout */
+.fragment:nth-child(odd) {
+    transform: rotate(-1deg);
+}
+
+.fragment:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+/* hover */
+.fragment:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.9);
 
 }
 
